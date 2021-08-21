@@ -1,0 +1,41 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h1>Friend List</h1>
+
+<table class="table table-striped table-hover table-bordered">
+   <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Social</th>
+      
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friends.each do |friend| %>
+    <% if friend.user == current_user %>
+      <tr>
+        <td><%= friend.first_name %>
+            <%= friend.last_name %>
+        </td>
+        <td><%= friend.email %></td>
+        <td><%= friend.phone %></td>
+        <td><%= friend.social %></td>
+        
+        <td><%= link_to 'Show', friend %></td>
+        
+        
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add Friend', new_friend_path, class:"btn btn-secondary" %>
+
